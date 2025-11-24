@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.ML.Trainers;
 using Tensorflow.Keras.Engine;
+using MachinelearningClass.Cohort;
+using MachinelearningClass.Regression;
 
 namespace MachinelearningClass
 {
@@ -147,7 +149,7 @@ namespace MachinelearningClass
         {
             var ml = new MLContext();
 
-            var data = ml.Data.LoadFromEnumerable(Data.GetFruitData());
+            var data = ml.Data.LoadFromEnumerable(DataRegression.GetFruitData());
 
             var pipeline =
                         ml.Transforms.Concatenate("Features", "Weight")
@@ -166,7 +168,7 @@ namespace MachinelearningClass
         {
             var ml = new MLContext();
 
-            var data = ml.Data.LoadFromEnumerable(Data.GetFruitData());
+            var data = ml.Data.LoadFromEnumerable(DataRegression.GetFruitData());
 
             var pipeline =
                 ml.Transforms.Conversion.MapValueToKey("Label", nameof(FruitData.FruitType))
@@ -194,7 +196,7 @@ namespace MachinelearningClass
         {
             var ml = new MLContext();
 
-            var data = ml.Data.LoadFromEnumerable(Data.GetCustomerData());
+            var data = ml.Data.LoadFromEnumerable(DataRegression.GetCustomerData());
 
             var pipeline = ml.Transforms.Concatenate("Features", "Age", "Spending")
                 .Append(ml.Clustering.Trainers.KMeans(numberOfClusters: 3));
@@ -209,23 +211,11 @@ namespace MachinelearningClass
 
             Console.WriteLine($"Cluster: {result.PredictedClusterId}");
         }
-        public static void SimpleLogisticAlgo()
-        {
-            var ml = new MLContext();
-            var data = ml.Data.LoadFromEnumerable(Data.GetFruitData());
-            var pipeline =
-                        ml.Transforms.Concatenate("Features", "Weight")
-                        .Append(ml.BinaryClassification.Trainers.SdcaLogisticRegression(
-                        labelColumnName: "IsApple",
-                        featureColumnName: "Features"));
-            var model = pipeline.Fit(data); // action happens
-            var engine = ml.Model.CreatePredictionEngine<FruitData, FruitPrediction>(model);
+        
 
-            var test = new FruitData { Weight = 130 };
-            var result = engine.Predict(test);
+        
+       
 
-            Console.WriteLine(result.PredictedLabel);
-            Console.ReadLine();
-        }
+
     }
 }

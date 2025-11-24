@@ -1,4 +1,6 @@
-﻿using Microsoft.ML;
+﻿using MachinelearningClass.Cohort;
+using MachinelearningClass.Regression;
+using Microsoft.ML;
 using Microsoft.ML.AutoML;
 using System;
 using System.Collections.Generic;
@@ -13,7 +15,7 @@ namespace MachinelearningClass
         public static void Lab1_SimplestMLCodeSinglePrediction()
         {
             var mlcontext = new MLContext();
-            var data = mlcontext.Data.LoadFromEnumerable(Data.GetLinearInsuranceData()); // Data
+            var data = mlcontext.Data.LoadFromEnumerable(DataRegression.GetLinearInsuranceData()); // Data
 
             var pipeline = mlcontext.Transforms // f1 = Age + Salary
                                     .Concatenate("Features", "Age")
@@ -33,8 +35,8 @@ namespace MachinelearningClass
         public static void Lab2_SimplestMLCodeUsingTestData()
         {
             var mlcontext = new MLContext();
-            var data = mlcontext.Data.LoadFromEnumerable(Data.GetLinearInsuranceData()); // Data
-            var testdata = mlcontext.Data.LoadFromEnumerable(Data.GetTestData()); // Data
+            var data = mlcontext.Data.LoadFromEnumerable(DataRegression.GetLinearInsuranceData()); // Data
+            var testdata = mlcontext.Data.LoadFromEnumerable(DataRegression.GetTestData()); // Data
 
             var pipeline = mlcontext.Transforms // f1 = Age + Salary
                                     .Concatenate("Features", "Age")
@@ -59,8 +61,8 @@ namespace MachinelearningClass
         public static void Lab3and4_SimplestMLCodeCheckingRSandRMSE()
         {
             var mlcontext = new MLContext();
-            var data = mlcontext.Data.LoadFromEnumerable(Data.GetLinearInsuranceData()); // Data
-            var testdata = mlcontext.Data.LoadFromEnumerable(Data.GetTestData()); // Data
+            var data = mlcontext.Data.LoadFromEnumerable(DataRegression.GetLinearInsuranceData()); // Data
+            var testdata = mlcontext.Data.LoadFromEnumerable(DataRegression.GetTestData()); // Data
 
             var pipeline = mlcontext.Transforms // f1 = Age + Salary
                                     .Concatenate("Features", "Age")
@@ -82,8 +84,8 @@ namespace MachinelearningClass
         public static void Lab5_SimplestMLAutoMl()
         {
             var mlcontext = new MLContext();
-            var data = mlcontext.Data.LoadFromEnumerable(Data.GetLinearInsuranceData()); // Data
-            var testdata = mlcontext.Data.LoadFromEnumerable(Data.GetTestData()); // Data
+            var data = mlcontext.Data.LoadFromEnumerable(DataRegression.GetLinearInsuranceData()); // Data
+            var testdata = mlcontext.Data.LoadFromEnumerable(DataRegression.GetTestData()); // Data
 
             var experimentSettings = new RegressionExperimentSettings
             {

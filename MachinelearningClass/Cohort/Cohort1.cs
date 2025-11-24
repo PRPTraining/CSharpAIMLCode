@@ -1,4 +1,5 @@
-﻿using Microsoft.ML;
+﻿using MachinelearningClass.Cohort;
+using Microsoft.ML;
 using Microsoft.ML.AutoML;
 using Microsoft.ML.Data;
 using Microsoft.ML.Transforms.TimeSeries;

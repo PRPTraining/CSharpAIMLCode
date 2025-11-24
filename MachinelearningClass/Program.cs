@@ -8,7 +8,8 @@ namespace MachinelearningClass
        
         static void Main(string[] args)
         {
-            CohortLabs.PredictNiftyUsingLags();
+            //Week1.Lab12();
+            Console.ReadLine();
         }
     }
     

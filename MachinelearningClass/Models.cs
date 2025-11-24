@@ -5,8 +5,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MachinelearningClass
+namespace MachinelearningClass.Cohort
 {
+    public class CreditCardInputs
+    {
+        [LoadColumn(0)] public float Time { get; set; }
+        [LoadColumn(1)] public float V1 { get; set; }
+        [LoadColumn(2)] public float V2 { get; set; }
+        [LoadColumn(3)] public float V3 { get; set; }
+        [LoadColumn(4)] public float V4 { get; set; }
+        [LoadColumn(5)] public float V5 { get; set; }
+        [LoadColumn(6)] public float V6 { get; set; }
+        [LoadColumn(7)] public float V7 { get; set; }
+        [LoadColumn(8)] public float V8 { get; set; }
+        [LoadColumn(9)] public float Amount { get; set; }
+        [LoadColumn(10)] public float Label { get; set; }
+    }
+
+    public class FraudPrediction
+    {
+        [ColumnName("PredictedLabel")] public bool IsFraud { get; set; }
+        public float Probability { get; set; }
+        public float Score { get; set; }
+    }
     public class InsuranceData
     {
         [LoadColumn(0)]
