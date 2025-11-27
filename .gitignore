@@ -1,0 +1,68 @@
+## Ignore Visual Studio temporary files, build results, and user-specific files
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+obj/
+bin/
+Debug/
+Release/
+
+# Visual Studio cache and settings
+.vs/
+*.dbmdl
+*.jfm
+
+# Generated files
+Generated Files/
+
+# Backup & temp files
+*.bak
+*.tmp
+*.swp
+
+# NuGet packages
+*.nupkg
+**/packages/*
+!**/packages/build/
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Tye
+.tye/
+
+# Visual Studio Code
+.vscode/
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Others
+*.cache
+*.log
+*.pdb
+
+# Rider
+.idea/
+
+# DotCover
+.idea/.idea.DotCover
+
+# Resharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# Azure Functions
+bin/
+obj/
+debug/
